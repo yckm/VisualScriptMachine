@@ -1,32 +1,17 @@
-# Prerequisites
-*.d
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+/.vs
+/RobProxy/.vs
+/RobProxy/bin
+/RobProxy/obj
+/sm/x64
+/x64
+/luaext/x64
+/WinFormsApp/bin
+/WinFormsApp/obj
+/luaext/smlog
+/Test/x64
+/Test/smlog
+/luaext/logs
