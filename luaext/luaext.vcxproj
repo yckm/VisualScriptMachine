@@ -177,6 +177,7 @@
     <ClCompile Include="Sm\src\PcsExecutor.cpp" />
     <ClCompile Include="Sm\src\Script.cpp" />
     <ClCompile Include="Sm\src\Debug.cpp" />
+    <ClCompile Include="Sm\src\Signals.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sm.h" />
@@ -220,6 +221,7 @@
     <ClInclude Include="Sm\include\PcsExecutor.h" />
     <ClInclude Include="Sm\include\Script.h" />
     <ClInclude Include="Sm\include\Debug.h" />
+    <ClInclude Include="Sm\include\Signals.h" />
     <ClInclude Include="Sm\include\Utils.h" />
   </ItemGroup>
   <ItemGroup>

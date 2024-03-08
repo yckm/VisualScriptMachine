@@ -174,6 +174,17 @@ namespace Pcs {
 			 */
 			static int move_tcp(lua_State* lua);
 
+			/**
+			 * @创建人 dnp
+			 * @简介 发送通道信号
+			 */
+			static int send_signal(lua_State* lua);
+
+			/**
+			 * @创建人 dnp
+			 * @简介 等待通道信号
+			 */
+			static int wait_signal(lua_State* lua);
 
 		};
 	}

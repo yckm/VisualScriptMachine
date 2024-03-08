@@ -159,13 +159,13 @@
     <ClCompile Include="Sm\src\Func.cpp">
       <Filter>Sm\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\LibCobot\cobot.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="sm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Sm\src\PcsExecutor.cpp">
+      <Filter>Sm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Sm\src\Signals.cpp">
       <Filter>Sm\src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -295,6 +295,9 @@
     </ClInclude>
     <ClInclude Include="sm.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Sm\include\Signals.h">
+      <Filter>Sm\SharedParams</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

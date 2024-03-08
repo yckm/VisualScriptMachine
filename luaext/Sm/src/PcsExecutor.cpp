@@ -172,6 +172,8 @@ namespace Pcs {
 			lua_register(lua, "log", LuaExtFuncs::luaLog);
 			//lua_register(lua, "movej2", LuaExtFuncs::movej2);	
 			lua_register(lua, "move_tcp", LuaExtFuncs::move_tcp);
+			lua_register(lua, "send_signal", LuaExtFuncs::send_signal);
+			lua_register(lua, "wait_signal", LuaExtFuncs::wait_signal);
 
 			// 注册钩子
 			lua_sethook(lua, trace, LUA_MASKLINE, 0); // before

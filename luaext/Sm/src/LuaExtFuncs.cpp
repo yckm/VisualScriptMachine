@@ -10,9 +10,9 @@
 #include <stdio.h>
 #include <chrono>
 #include <thread>
-#include "string"
 #include <vector>
 #include "../include/log.h"
+#include "../include/Signals.h"
 
 namespace Pcs {
 	namespace Sm {
@@ -510,5 +510,78 @@ namespace Pcs {
 			return 0;
 		}
 #pragma endregion
+
+#pragma region 信号量
+		/**
+		* @创建人 dnp
+		* @简介 发送通道信号
+		*/
+		int LuaExtFuncs::send_signal(lua_State* lua)
+		{
+			Func fn(lua, EnumExtFunc::none, 2);
+			if (!fn.validate()) {
+				return 0;
+			}		
+
+			const char* key = lua_tostring(lua, 1);
+			std::string k = key;
+			int idx = std::stoi(k.substr(1));
+			int signal = lua_tointeger(lua, 2);
+
+			if (!Signals::send(idx, signal)) {
+				lua_pushstring(lua, "信号量名称错误");
+				lua_error(lua);
+				return 1;
+			}
+
+			lua_pushstring(lua, "Success");
+			return 1;
+		}
+
+		/**
+		* @创建人 dnp
+		* @简介 等待通道信号
+		*/
+		int LuaExtFuncs::wait_signal(lua_State* lua)
+		{
+			Func fn(lua, EnumExtFunc::none, 2);
+			if (!fn.validate()) {
+				return 0;
+			}
+
+			const char* key = lua_tostring(lua, 1);
+			std::string k = key;
+			int idx = std::stoi(k.substr(1));
+			int timeout = lua_tointeger(lua, 2); // 超时时间
+
+			long st = Utils::GetTsMs();
+			int signal = 0;
+
+			// 进行等待
+			while (true)
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(EPOLLTIME)); // 睡眠10ms
+				if (timeout > 0 and Utils::GetTsMs() - st > timeout * 1000) {
+					lua_pushinteger(lua, 0); 
+					return 1;
+				}
+
+				signal = Signals::get(idx);
+				if (signal > 0) {
+					lua_pushinteger(lua, signal);
+					return 1;
+				}
+
+				if (!fn.checkPrst()) {
+					lua_pushinteger(lua, 0); 
+					return 1; // 检查prsk
+				}
+
+			}
+			lua_pushinteger(lua, 0); 
+			return 1;
+		}
+#pragma endregion
+
 	}
 }
