@@ -7,7 +7,7 @@ namespace Pcs {
 
 #pragma region 局部函数
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 获取lua传给c++的double数组
 		 * @参数 lua状态
 		 * @参数 paramIndexInLua 数组在栈中的位置
@@ -26,7 +26,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 获取当前函数的执行信息
 		 * @参数 lua  lua状态
 		 * @返回值 (当前执行函数所在的行号,函数名称)
@@ -73,7 +73,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 验证函数参数
 		* @返回值 是否验证通过 true 通过 ; false 未通过
 		*/
@@ -94,7 +94,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 验证prst状态和是否有新脚本
 		* @返回值
 		*/
@@ -131,7 +131,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 运行函数
 		* @参数 cmd 待执行的指令
 		* @参数 enableDebug 是否允许调试
@@ -177,7 +177,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 获取通道
 		* @返回值 通道
 		*/
@@ -187,7 +187,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 是否是Prst::normal
 		* @返回值
 		*/
@@ -197,7 +197,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 获取函数所在行
 		* @返回值 行号
 		*/

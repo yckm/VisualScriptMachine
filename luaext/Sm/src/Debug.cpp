@@ -10,7 +10,7 @@ namespace Pcs {
 		using namespace Model;
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 设置是否继续
 		* @参数 canContinue 是否能继续(下一步)
 		*/
@@ -20,7 +20,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 是否能够继续执行
 		* @参数 line 当前行号
 		* @返回值 true 继续/ false 等待
@@ -39,7 +39,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 记录当前行号
 		* @参数 line 当前行号
 		*/
@@ -50,7 +50,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 获取当前行号
 		* @参数 line 当前行号
 		*/
@@ -60,7 +60,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 设置模式(是否调试)
 		 * @参数 isDebug 是否进行调试
 		 */
@@ -74,7 +74,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 设置断点
 		 * @参数 linenos 断点所在行号列表
 		 */
@@ -84,7 +84,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 是否是调试模式
 		 * @返回值 是否是调试模式
 		 */
@@ -93,7 +93,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 将行号设置下一个断点
 		 */
 		bool  Debug::nextBreakpoint() {
@@ -110,7 +110,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介  下一行(如果下一行未非系统函数则无效)
 		* @参数 channel 通道ID
 		* @返回值 是否设置成功
@@ -121,7 +121,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 获取当前行号
 		 * @返回值  当前行号
 		 */

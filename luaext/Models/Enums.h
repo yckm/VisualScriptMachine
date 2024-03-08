@@ -2,7 +2,7 @@
 namespace Pcs {
 	namespace Model {
         /**
-         * @创建人 dns
+         * @创建人 dnp
          * @简介 执行状态控制
          */
         enum EnumPrst {
@@ -13,7 +13,7 @@ namespace Pcs {
         };
 
         /**
-         * @创建人 dns
+         * @创建人 dnp
          * @简介 脚本/指令状态
          */
         enum EnumExecuteStatus {

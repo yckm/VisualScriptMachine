@@ -20,7 +20,7 @@ namespace Pcs {
 			}
 
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 重载赋值
 			 * @参数 value 值
 			 * @返回值 
@@ -39,7 +39,7 @@ namespace Pcs {
 			
 
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 更新值
 			 * @参数 value 最新值
 			 */
@@ -57,7 +57,7 @@ namespace Pcs {
 
 
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 获取最新值
 			 * @返回值  最新值
 			 */
@@ -68,7 +68,7 @@ namespace Pcs {
 #pragma endregion
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介  机械臂状态
 		 */
 		struct BotStateModel {
@@ -81,7 +81,7 @@ namespace Pcs {
 		};
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 通道状态
 		 */
 		struct ChannelStateModel {
@@ -96,7 +96,7 @@ namespace Pcs {
 		};
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 指令模型
 		 */
 		struct CmdModel {
@@ -114,7 +114,7 @@ namespace Pcs {
 		};
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 脚本模型
 		 */
 		struct ScriptModel

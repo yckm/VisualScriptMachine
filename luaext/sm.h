@@ -13,7 +13,7 @@
 #endif
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 一般操作返回值
  */
 EXPDLL struct Resp {
@@ -37,7 +37,7 @@ EXPDLL struct States
 
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 通道状态
  */
 EXPDLL struct ExternChannelStateModel {
@@ -77,13 +77,13 @@ std::vector<Resp*> externalRespLs;
 
 #pragma region explore to lc
 /**
-* @创建人 dns
+* @创建人 dnp
 * @简介 初始化脚本机 (该方法必须在主线程中调用,请勿重复调用)
 */
 EXPDLL bool initScriptMachine();
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介执行脚本。脚本遵循本文档规范。该函数调用后, 设置  脚本 共享变量。
  * @参数 channel 通道 ID。
  * @参数 script 脚本内容
@@ -91,7 +91,7 @@ EXPDLL bool initScriptMachine();
  */
 EXPDLL Resp* executeScript(int channel, const char* script);
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介
  * @参数 channel 通道 ID。
  * @参数 signal PRST的值 Pcs::Model::EnumPrst
@@ -99,7 +99,7 @@ EXPDLL Resp* executeScript(int channel, const char* script);
  */
 EXPDLL bool prst(int channel, int  signal);
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC 设置指令为完成状态
  * @参数 channel 通道 ID。
  * @参数 cmdId 控制指令ID
@@ -108,21 +108,21 @@ EXPDLL bool prst(int channel, int  signal);
  */
 EXPDLL bool setCmdStatus(int channel, int cmdId,int status);
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC更新 BotState 的值
  * @参数 channel 通道 ID。
  * @返回值  是否设置成功
  */
 EXPDLL bool updateBotStatus(int channel, States* rts, Joints* joints, Tcps* tcp);
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC获取通道状态
  * @参数 channel 通道 ID。
  * @返回值  ChannelStateModel实例
  */
 EXPDLL  ExternChannelStateModel* getChannelState(int channel);
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC查询控制指令
  * @参数 channel 通道 ID。
  * @返回值 控制指令
@@ -133,7 +133,7 @@ EXPDLL  ExternCmd* getCmd(int channel);
 
 #pragma region 调试
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介  启用或禁用调试
  * @参数 channel 通道ID
  * @参数 enable true 启用调试/false 禁用调试
@@ -142,7 +142,7 @@ EXPDLL  ExternCmd* getCmd(int channel);
 EXPDLL bool setDebugMode(int channel, bool enable);
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介  下一个可用断点
  * @参数 channel 通道ID
  * @返回值 是否设置成功
@@ -150,7 +150,7 @@ EXPDLL bool setDebugMode(int channel, bool enable);
 EXPDLL bool nextBreakpoint(int channel);
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介  下一步(如果下一行未非系统函数则无效)
  * @参数 channel 通道ID
  * @返回值 是否设置成功
@@ -159,7 +159,7 @@ EXPDLL bool nextStep(int channel);
 
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 设置断点
  * @参数 channel 通道ID
  * @参数 linenos 断点所在行列表

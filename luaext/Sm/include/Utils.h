@@ -17,7 +17,7 @@ namespace Pcs {
 		{
 		public:
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 double转string并保留3位小数
 			 * @参数 val 数字
 			 * @返回值 数字字符串
@@ -69,7 +69,7 @@ namespace Pcs {
 			}
 
 			/**
-			 * @创建人:dns
+			 * @创建人:dnp
 			 * @简述:单精度数组转双精度数组
 			 * @参数:arr 单精度数组
 			 * @返回值:算进度速度
@@ -94,7 +94,7 @@ namespace Pcs {
 			}
 
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 分割字符串
 			 * @参数 str 待分割的字符串
 			 * @参数 pattern 分割符
@@ -122,7 +122,7 @@ namespace Pcs {
 			}
 
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 角度转弧度
 			 * @参数 degree 角度
 			 * @返回值 弧度
@@ -132,7 +132,7 @@ namespace Pcs {
 			}
 
 			/**
-			 * @创建人 dns
+			 * @创建人 dnp
 			 * @简介 弧度转角度
 			 * @参数 rad 弧度
 			 * @返回值 角度

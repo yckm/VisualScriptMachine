@@ -14,7 +14,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 PLC查询控制指令
 		 * @参数 channel 通道 ID。
 		 * @返回值 控制指令
@@ -24,7 +24,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 PLC更新指令状态
 		 * @参数 cmdId 控制指令ID
 		 * @参数 status 指令目标状态
@@ -36,7 +36,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 executor更新指令
 		 * @参数 cmd 新指令
 		 * @返回值 是否设置成功
@@ -71,7 +71,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 获取指令状态
 		 * @返回值 (指令id,指令状态)
 		 */
@@ -81,7 +81,7 @@ namespace Pcs {
 
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 近指令设置为"没有指令"
 		 */
 		void Cmd::reset() {

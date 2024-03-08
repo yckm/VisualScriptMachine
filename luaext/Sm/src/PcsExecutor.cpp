@@ -17,7 +17,7 @@ namespace Pcs {
 	namespace Sm {
 		using namespace Model;
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 启动通道
 		* @参数 channelId 通道ID
 		*/
@@ -36,13 +36,12 @@ namespace Pcs {
 
 				channel->setLog(""); // 开始新脚本前清空原来的日志
 				executeScript();// 新的脚本 暂停是针对脚本的暂停,如果脚本没有运行,又何必暂停
-				channel->setDebugMode(false);// 脚本执行结束取消调试模式
 				channel->setScriptStatus(EnumExecuteStatus::terminated); // 设置脚本结束
 			}
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 跟踪行号
 		 * @参数 lua lua状态
 		 * @参数 debug lua debug
@@ -100,7 +99,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 执行脚本
 		 */
 		void PcsExecutor::executeScript() {
@@ -145,7 +144,7 @@ namespace Pcs {
 		}
 
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 初始化lua虚拟机并注册函数
 		 * @返回值 lua虚拟机
 		 */

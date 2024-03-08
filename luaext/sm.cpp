@@ -47,7 +47,7 @@ static void _initLogger() {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 初始化给c#提供的变量
  */
 static void _init_charp_share_params() {
@@ -73,7 +73,7 @@ static void _init_charp_share_params() {
 }
 
 /**
-* @创建人 dns
+* @创建人 dnp
 * @简介 创建通道
 */
 bool  initScriptMachine() {
@@ -92,7 +92,7 @@ bool  initScriptMachine() {
 }
 
 /**
-	 * @创建人 dns
+	 * @创建人 dnp
 	 * @简介执行脚本。脚本遵循本文档规范。该函数调用后, 设置  脚本 共享变量。
 	 * @参数 chId 通道 ID。
 	 * @参数 script 脚本内容
@@ -115,7 +115,7 @@ Resp* executeScript(int chId, const char* script) {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介
  * @参数 channel 通道 ID。
  * @参数 signal PRST的值
@@ -127,7 +127,7 @@ bool  prst(int channel, int signal) {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC 设置指令为完成状态
  * @参数 channel 通道 ID。
  * @参数 cmdId 控制指令ID
@@ -140,7 +140,7 @@ bool setCmdStatus(int channel, int cmdId, int status) {
 }
 
 /**
-* @创建人 dns
+* @创建人 dnp
 * @简介 PLC更新 gBotState 的值
 * @参数 channel 通道ID
 * @参数 rts [机器人状态,机器人任务状态,机器人安全控制器状态]
@@ -166,7 +166,7 @@ bool  updateBotStatus(int channel, States* rts, Joints* joints, Tcps* tcp){
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC获取通道状态,搞到数据一般不使用,所以得到数据就保存原样,方便用户查看
  * @参数 channel 通道 ID。
  * @返回值  ChannelStateModel实例
@@ -208,7 +208,7 @@ ExternChannelStateModel*  getChannelState(int channelId) {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 PLC查询控制指令
  * @参数 channel 通道 ID。
  * @返回值 控制指令
@@ -273,7 +273,7 @@ ExternCmd*  getCmd(int channel) {
 
 #pragma region 调试
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介  启用或禁用调试
  * @参数 enable true 启用调试/false 禁用调试
  * @返回值 是否设置成功
@@ -284,7 +284,7 @@ bool setDebugMode(int channel, bool enable) {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介  下一个可用断点
  * @返回值 是否设置成功
  */
@@ -294,7 +294,7 @@ bool nextBreakpoint(int channel) {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介  下一行(如果下一行未非系统函数则无效)
  * @参数 channel 通道ID
  * @返回值 是否设置成功
@@ -305,7 +305,7 @@ bool nextStep(int channel) {
 }
 
 /**
- * @创建人 dns
+ * @创建人 dnp
  * @简介 设置断点
  * @参数 channel 通道ID
  * @参数 linenos 断点所在行列表

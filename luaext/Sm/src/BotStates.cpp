@@ -8,7 +8,7 @@ namespace Pcs {
 	namespace Sm {
 		using namespace Model;
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 更新来自plc机器人的状态
 		 * @参数 bot 机器人状态
 		 * @参数 joints 关节角度
@@ -28,7 +28,7 @@ namespace Pcs {
 		}
 
 		/**
-		* @创建人 dns
+		* @创建人 dnp
 		* @简介 PLC更新 gBotState 的值
 		* @参数 joints 关节角度
 		* @参数 tcps 末端位置
@@ -55,7 +55,7 @@ namespace Pcs {
 			}
 		}
 		/**
-		 * @创建人 dns
+		 * @创建人 dnp
 		 * @简介 内部获取外部机械臂状态
 		 * @返回值  机械臂状态
 		 */
