@@ -170,4 +170,8 @@ EXPDLL bool setBreakpoints(int channel , int* linenos, int size);
 
 #pragma endregion
 
-
+/**
+ * @创建人 dnp
+ * @简介  更新使用的工件坐标系. 
+ */
+EXPDLL void useWobj(int channel ,const char* wobj);
