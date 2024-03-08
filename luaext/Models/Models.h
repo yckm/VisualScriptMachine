@@ -127,6 +127,7 @@ namespace Pcs {
 			EnumPrst prst; // 当前脚本的Prst
 			EnumExecuteStatus status = EnumExecuteStatus::notstart;// 脚本运行状态
 			PValue< std::string> funcName = PValue < std::string>("");  // 正在执行的函数名称
+			std::vector<std::string> scriptRows; // 将原始脚本通过换行符分割后的,用于日志显示用
 		};
 	}
 }

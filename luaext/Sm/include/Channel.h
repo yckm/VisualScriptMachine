@@ -98,6 +98,14 @@ namespace Pcs {
 			 * @返回值 是否操作从成功
 			 */
 			bool setBreakpoints(std::vector<int> linenos);
+
+			/**
+			 * @创建人 dnp
+			 * @简介 获取指定行号的代码.
+			 * @参数 rowno 行号
+			 * @返回值 该行的代码
+			 */
+			std::string getScriptRow(int rowno);
 #pragma endregion
 
 #pragma region _script

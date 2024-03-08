@@ -151,6 +151,17 @@ namespace Pcs {
 
 		/**
 		* @创建人 dnp
+		* @简介 获取指定行号的代码.
+		* @参数 rowno 行号
+		* @返回值 该行的代码
+		*/
+		std::string Channel::getScriptRow(int rowno)
+		{
+			return _script->getScriptRow(rowno);
+		}
+
+		/**
+		* @创建人 dnp
 		* @简介 设置错误信息
 		* @参数 hasErr 是否包含错误
 		* @参数 err 错误信息

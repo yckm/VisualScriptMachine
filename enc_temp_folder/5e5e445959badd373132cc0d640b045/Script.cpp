@@ -71,6 +71,7 @@ namespace Pcs {
 			script.status = EnumExecuteStatus::notstart;
 			isNew = true;
 			script.scriptRows = Utils::split(content, "\n"); // 分割成行
+
 			return script.id;
 		}
 

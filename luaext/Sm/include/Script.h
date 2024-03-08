@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../../Models/Enums.h"
 #include "../../Models/Models.h"
+#include <string>
 
 namespace Pcs {
 	namespace Sm {
@@ -71,6 +72,14 @@ namespace Pcs {
 			 * @参数 err 错误信息
 			 */
 			void setErr(bool hasErr, std::string err);
+
+			/**
+			 * @创建人 dnp
+			 * @简介 获取指定行号的代码.
+			 * @参数 rowno 行号
+			 * @返回值 该行的代码
+			 */
+			std::string getScriptRow(int rowno);
 		};
 	}
 }

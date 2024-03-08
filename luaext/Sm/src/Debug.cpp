@@ -45,7 +45,6 @@ namespace Pcs {
 		*/
 		void Debug::logCurLine(int line)
 		{
-			Log << "logCurLine " << line;
 			_curLine = line;
 		}
 

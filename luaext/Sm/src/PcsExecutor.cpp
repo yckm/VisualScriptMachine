@@ -53,15 +53,20 @@ namespace Pcs {
 			lua_pop(lua, 1);
 
 			int curLine = debug->currentline - 1;
+			if (curLine < 1) { // 首行是我给它加的,所以不显示
+				return;
+			}
 			
 			#pragma region 断点
 			Channel* channel = Channels::getChannel(channelId);
 			channel->logCurLine(curLine); // 记录当前行号
+
+			Log << "entry〖" << curLine << "〗 code: " << channel->getScriptRow(curLine);
+
 			while (channel->isDebug())
 			{				
 				if (channel->canContine()) {// 如果调试并且没有指明下一步的化继续在此等待
-					Log << "跳出该行 Line : " << curLine;
-					break; // 跳出循环
+					return; // 跳出循环
 				}
 
 				#pragma region prst
