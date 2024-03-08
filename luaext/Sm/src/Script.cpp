@@ -104,7 +104,10 @@ namespace Pcs {
 		*/
 		std::string Script::getScriptRow(int rowno)
 		{
-			return script.scriptRows[rowno];
+			if (script.scriptRows.size() > rowno) {
+				return script.scriptRows[rowno];
+			}
+			return "";
 		}
 	}
 }

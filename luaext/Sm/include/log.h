@@ -12,5 +12,5 @@
 #endif // !Err
 
 #ifndef EPOLLTIME
-#define EPOLLTIME 5 //  内部循环时间
+#define EPOLLTIME 1 //  内部循环时间
 #endif // !EPOLLTIME
