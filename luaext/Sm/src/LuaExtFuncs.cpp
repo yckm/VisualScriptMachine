@@ -116,6 +116,8 @@ namespace Pcs {
 			cmd.id = 0;
 			cmd.func = func;
 			cmd.params = params;
+			cmd.wobj = fn.getChannel()->getWobjName();
+			cmd.tool = fn.getChannel()->getToolName();
 			
 			fn.start(cmd);
 			return 0;
@@ -268,6 +270,7 @@ namespace Pcs {
 			cmd.params = offset;
 			
 			fn.start(cmd);
+			fn.getChannel()->useWobj(name);
 			return true;
 		}
 
@@ -283,10 +286,14 @@ namespace Pcs {
 				return 0;
 			}
 
+			std::string toolName = lua_tostring(lua, 1);
+
 			CmdModel cmd{};
 			cmd.func = EnumExtFunc::use_tool;
-			cmd.tool = lua_tostring(lua, 1);
+			cmd.tool = toolName;
 			fn.start(cmd);
+
+			fn.getChannel()->useTool(toolName);
 			return 0;
 		}
 
@@ -302,11 +309,15 @@ namespace Pcs {
 				return 0;
 			}
 
+			std::string wobjName = lua_tostring(lua, 1);
+
 			CmdModel cmd{};
 			cmd.func = EnumExtFunc::use_wobj;
-			cmd.wobj = lua_tostring(lua, 1);
+			cmd.wobj = wobjName;
 			
 			fn.start(cmd);
+
+			fn.getChannel()->useWobj(wobjName);
 			return 0;
 		}
 

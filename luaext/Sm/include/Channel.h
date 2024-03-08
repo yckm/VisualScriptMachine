@@ -19,7 +19,7 @@ namespace Pcs {
 			BotStates* _botState;// 机器人状态
 			ChannelStateModel* _state;// 通道状态
 			Debug* _debug;// 调试信息
-			int channelId;// 通道id
+			int channelId;// 通道id			
 
 		public:
 			Channel(int channelId);
@@ -221,6 +221,20 @@ namespace Pcs {
 			 * @返回值 是否设置成功
 			 */
 			bool useWobj(std::string name);
+
+			/**
+			 * @创建人 dnp
+			 * @简介 获取工件坐标系名称.
+			 * @返回值 
+			 */
+			std::string getWobjName();
+
+			/**
+			 * @创建人 dnp
+			 * @简介 获取工件坐标系名称.
+			 * @返回值 
+			 */
+			std::string getToolName();
 #pragma endregion
 
 #pragma region 外部机器人状态

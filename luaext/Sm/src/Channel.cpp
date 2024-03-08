@@ -316,6 +316,26 @@ namespace Pcs {
 
 		/**
 		* @创建人 dnp
+		* @简介 获取工件坐标系名称.
+		* @返回值
+		*/
+		std::string Channel::getWobjName()
+		{
+			return _state->wobj.val();
+		}
+
+		/**
+		* @创建人 dnp
+		* @简介 获取工件坐标系名称.
+		* @返回值
+		*/
+		std::string Channel::getToolName()
+		{
+			return _state->tool.val();
+		}
+
+		/**
+		* @创建人 dnp
 		* @简介 PLC更新 gBotState 的值
 		* @参数 joints 关节角度
 		* @参数 tcps 末端位置
