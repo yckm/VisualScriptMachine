@@ -172,12 +172,15 @@
     <ClCompile Include="Sm\src\Channel.cpp" />
     <ClCompile Include="Sm\src\Channels.cpp" />
     <ClCompile Include="Sm\src\Cmd.cpp" />
+    <ClCompile Include="Sm\src\FixedParams.cpp" />
     <ClCompile Include="Sm\src\Func.cpp" />
     <ClCompile Include="Sm\src\LuaExtFuncs.cpp" />
     <ClCompile Include="Sm\src\PcsExecutor.cpp" />
     <ClCompile Include="Sm\src\Script.cpp" />
     <ClCompile Include="Sm\src\Debug.cpp" />
     <ClCompile Include="Sm\src\Signals.cpp" />
+    <ClCompile Include="sqlite\shell.c" />
+    <ClCompile Include="sqlite\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sm.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="Sm\include\Channel.h" />
     <ClInclude Include="Sm\include\Channels.h" />
     <ClInclude Include="Sm\include\Cmd.h" />
+    <ClInclude Include="Sm\include\FixedParams.h" />
     <ClInclude Include="Sm\include\Func.h" />
     <ClInclude Include="Sm\include\log.h" />
     <ClInclude Include="Sm\include\LuaExtFuncs.h" />
@@ -223,6 +227,8 @@
     <ClInclude Include="Sm\include\Debug.h" />
     <ClInclude Include="Sm\include\Signals.h" />
     <ClInclude Include="Sm\include\Utils.h" />
+    <ClInclude Include="sqlite\sqlite3.h" />
+    <ClInclude Include="sqlite\sqlite3ext.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="lua\Makefile" />

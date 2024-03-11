@@ -31,6 +31,9 @@
     <Filter Include="Sm\SharedParams">
       <UniqueIdentifier>{d3f36f77-d2d1-4eb2-8e83-e29f375ba428}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sqlite">
+      <UniqueIdentifier>{e0315c15-1a8f-46d2-ba60-db425c843e8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lua\lapi.c">
@@ -168,6 +171,15 @@
     <ClCompile Include="Sm\src\Signals.cpp">
       <Filter>Sm\src</Filter>
     </ClCompile>
+    <ClCompile Include="sqlite\shell.c">
+      <Filter>sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\sqlite3.c">
+      <Filter>sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="Sm\src\FixedParams.cpp">
+      <Filter>Sm\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lua\lua.hpp">
@@ -298,6 +310,15 @@
     </ClInclude>
     <ClInclude Include="Sm\include\Signals.h">
       <Filter>Sm\SharedParams</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3.h">
+      <Filter>sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3ext.h">
+      <Filter>sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="Sm\include\FixedParams.h">
+      <Filter>Sm\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

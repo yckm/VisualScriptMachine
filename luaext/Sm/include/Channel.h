@@ -7,6 +7,7 @@
 #include "Cmd.h"
 #include "BotStates.h"
 #include "Debug.h"
+#include <queue>
 
 namespace Pcs {
 	namespace Sm {
@@ -19,7 +20,8 @@ namespace Pcs {
 			BotStates* _botState;// 机器人状态
 			ChannelStateModel* _state;// 通道状态
 			Debug* _debug;// 调试信息
-			int channelId;// 通道id			
+			int channelId;// 通道id	
+			std::queue<D6Param> prePositions; // 预定义位置
 
 		public:
 			Channel(int channelId);
@@ -313,6 +315,29 @@ namespace Pcs {
 			 */
 			int getCurLine();
 #pragma endregion
+
+			/**
+			 * @创建人 dnp
+			 * @简介 更新预定义位置.
+			 * @参数 p 位姿
+			 */
+			void updatePrePosition(int idx, std::vector<double> p);
+
+
+			/**
+			 * @创建人 dnp
+			 * @简介 获取预定义位姿.
+			 * @返回值 位姿
+			 */
+			D6Param getPrePosition();
+
+
+			/**
+			 * @创建人 dnp
+			 * @简介 固定参数是否发生改变.
+			 * @返回值 是否发生改变
+			 */
+			bool prePositionChanged();
 		};
 	}
 }

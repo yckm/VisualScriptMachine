@@ -22,6 +22,14 @@ namespace Pcs {
 			static std::thread threads[channel_num];
 			static void append(Channel* channel);
 			static Channel* getChannel(int channelId);
+
+			/**
+			 * @创建人 dnp
+			 * @简介 获取预定义位置变量列表.
+			 * @参数 channelId 公道ID
+			 * @返回值 预定义位置变量列表
+			 */
+			static std::vector<D6Param> getFixParamsList(int channelId);
 		};
 	}
 }

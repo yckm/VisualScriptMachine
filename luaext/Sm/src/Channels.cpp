@@ -5,6 +5,7 @@
  * @简述: 主线程中的通道集合,全局共享变量
 *******************************************************************/
 #include "../include/Channels.h"
+#include "../include/FixedParams.h"
 namespace Pcs {
 	namespace Sm {
 		std::thread Channels::threads[Channels::channel_num];
@@ -33,6 +34,17 @@ namespace Pcs {
 		 */
 		Channel* Channels::getChannel(int channelId) {
 			return channels[channelId];
+		}
+
+		/**
+		* @创建人 dnp
+		* @简介 获取预定义位置变量列表.
+		* @参数 channelId 公道ID
+		* @返回值 预定义位置变量列表
+		*/
+		std::vector<D6Param> Channels::getFixParamsList(int channelId)
+		{
+			return FixedParams::getList(channelId);
 		}
 	}
 }

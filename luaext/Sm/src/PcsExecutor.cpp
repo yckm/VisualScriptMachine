@@ -28,7 +28,10 @@ namespace Pcs {
 
 			while (true)
 			{
-				std::this_thread::sleep_for(std::chrono::milliseconds(EPOLLTIME)); // 睡眠10ms					
+				std::this_thread::sleep_for(std::chrono::milliseconds(EPOLLTIME)); // 睡眠10ms	
+
+				LuaExtFuncs::updateFixParams(channel, lua);// 更新 位置参数
+
 				// 脚本id相同的清空只会出现在脚本执行结束的时候,否则函数卡在执行脚本的地方
 				if (curScriptId == channel->getScriptId()) {
 					continue;
@@ -52,13 +55,17 @@ namespace Pcs {
 			int channelId = lua_tonumber(lua, -1);
 			lua_pop(lua, 1);
 
+			
+
 			int curLine = debug->currentline - 1;
 			if (curLine < 1) { // 首行是我给它加的,所以不显示
 				return;
 			}
 			
 			#pragma region 断点
-			Channel* channel = Channels::getChannel(channelId);
+			Channel* channel = Channels::getChannel(channelId);			
+			LuaExtFuncs::updateFixParams(channel, lua);// 更新 位置参数
+
 			channel->logCurLine(curLine); // 记录当前行号
 
 			Log << "entry〖" << curLine << "〗 code: " << channel->getScriptRow(curLine);
@@ -179,6 +186,22 @@ namespace Pcs {
 			lua_register(lua, "move_tcp", LuaExtFuncs::move_tcp);
 			lua_register(lua, "send_signal", LuaExtFuncs::send_signal);
 			lua_register(lua, "wait_signal", LuaExtFuncs::wait_signal);
+
+#pragma region  注册全局变量P1~99 一百个长度为6的数组
+			std::vector<D6Param> paramList = Channels::getFixParamsList(channelId);
+			for (const D6Param& p: paramList){
+				lua_newtable(lua);
+
+				for (size_t i = 1; i <= 6; ++i) {
+					lua_pushinteger(lua, i); // 索引
+					lua_pushnumber(lua, p.params[i]); // 值
+					lua_settable(lua, -3);
+				}
+				std::string pName = "P" + std::to_string(p.idx);
+				lua_setglobal(lua, pName.c_str());
+			}
+#pragma endregion
+
 
 			// 注册钩子
 			lua_sethook(lua, trace, LUA_MASKLINE, 0); // before

@@ -14,3 +14,8 @@
 #ifndef EPOLLTIME
 #define EPOLLTIME 1 //  内部循环时间
 #endif // !EPOLLTIME
+
+#ifndef CHANNEL_NUM
+#define CHANNEL_NUM 1 //  通道数
+#endif // !EPOLLTIME
+

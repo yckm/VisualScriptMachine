@@ -426,5 +426,44 @@ namespace Pcs {
 			return _debug->getCurLine();
 		}
 
+		/**
+		* @创建人 dnp
+		* @简介 更新预定义位置.
+		* @参数 p 位姿
+		*/
+		void Channel::updatePrePosition(int idx,std::vector<double> p)
+		{
+			D6Param pos = { idx,p };
+			prePositions.push(pos);
+		}
+
+	
+
+		/**
+		* @创建人 dnp
+		* @简介 获取预定义位姿.
+		* @返回值 位姿
+		*/
+		D6Param Channel::getPrePosition()
+		{
+			if (prePositions.empty()) {
+				return D6Param();
+			}
+
+			D6Param p = prePositions.front();
+			prePositions.pop();
+			return p;
+		}
+
+		/**
+		* @创建人 dnp
+		* @简介 固定参数是否发生改变.
+		* @返回值 是否发生改变
+		*/
+		bool Channel::prePositionChanged()
+		{
+			return !prePositions.empty();
+		}
+
 	}
 }

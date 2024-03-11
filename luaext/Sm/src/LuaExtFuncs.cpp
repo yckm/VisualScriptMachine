@@ -593,6 +593,36 @@ namespace Pcs {
 			return 1;
 		}
 #pragma endregion
+		/**
+		* @创建人 dnp
+		* @简介 当fixparams发生变化时候更新lua状态中的变量.
+		* @返回值 是否发生了变化
+		*/
+		bool LuaExtFuncs::updateFixParams(Channel* channel,lua_State* lua)
+		{
+			if (!channel->prePositionChanged()) {
+				return false;
+			}
+			D6Param d6 = channel->getPrePosition();
 
+			std::string name = "P" + std::to_string(d6.idx);
+			// 获取要更新的 table。
+			lua_getglobal(lua, name.c_str());
+
+			// 创建一个新的 Lua 表。
+			lua_newtable(lua);
+
+			// 将要设置的值压入堆栈。
+			for (int i = 0; i < 6; i++) {
+				lua_pushnumber(lua, d6.params[i]);
+			}
+
+			// 将表压入堆栈。
+			lua_pushvalue(lua, -1);
+
+			// 调用 lua_settable() 函数。
+			lua_settable(lua, -3);
+			return true;
+		}
 	}
 }

@@ -186,6 +186,14 @@ namespace Pcs {
 			 */
 			static int wait_signal(lua_State* lua);
 
+			/**
+			 * @创建人 dnp
+			 * @简介 当fixparams发生变化时候更新lua状态中的变量.
+			 * @参数 channel 通道
+			 * @lua lua状态
+			 * @返回值 是否发生了变化
+			 */
+			static bool updateFixParams(Channel* channel, lua_State* lua);
 		};
 	}
 }

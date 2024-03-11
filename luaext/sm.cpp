@@ -15,6 +15,7 @@
 #include <io.h>
 #include <direct.h>
 #include "Sm/include/log.h"
+#include "Sm/include/FixedParams.h"
 
 using namespace Pcs::Sm;
 
@@ -79,14 +80,15 @@ static void _init_charp_share_params() {
 bool  initScriptMachine() {
 	std::call_once(once_flag, []() {
 		_initLogger();
+		FixedParams::init();
 
-		for (int channelId = 0; channelId < Channels::channel_num; channelId++) {
+		for (int channelId = 0; channelId < CHANNEL_NUM; channelId++) {
 			Channels::append(new Channel(channelId));
 			Channels::threads[channelId] = std::thread(&PcsExecutor::Start, new PcsExecutor(), channelId);
 			_init_charp_share_params();
 		}
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		Log << "创建通道数 : " << Channels::channel_num;
+		Log << "创建通道数 : " << CHANNEL_NUM;
 		});
 	return true;
 }

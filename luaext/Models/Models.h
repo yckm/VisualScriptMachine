@@ -129,5 +129,14 @@ namespace Pcs {
 			PValue< std::string> funcName = PValue < std::string>("");  // 正在执行的函数名称
 			std::vector<std::string> scriptRows; // 将原始脚本通过换行符分割后的,用于日志显示用
 		};
+
+		/**
+		 * @创建人 dnp
+		 * @简介 固定位置参数. 
+		 */
+		struct D6Param {
+			int idx=-1;
+			std::vector<double> params;
+		};
 	}
 }
