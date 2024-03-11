@@ -71,14 +71,14 @@ namespace WinFormsApp
                     txtChannel.Text = $"status：{ch.status}\r\nfunc：{ch.funcName}\r\nline：{ch.line}\r\njointV：{ch.jointV}\r\ntcpV：{ch.tcpV}\r\njointA：{ch.jointA}\r\ntcpA：{ch.tcpA}\r\ntool：{ch.tool}\r\nwobj：{ch.wobj}\r\nhasErr:{ch.hasErr}\r\nerr:{ch.err}\r\nlog:{ch.log}";
 
                     // 自动完成
-                    if (autoCmdId != cmd.id && cmd.id>0)
+                    if (autoCmdId != cmd.id && cmd.id > 0)
                     {
                         Thread.Sleep(1000);
                         Sm.SetCmdFinished();
                         autoCmdId = cmd.id;
 
                         string now = DateTime.Now.ToString("mm:ss");
-                        txtLog.Text = txtLog.Text +$"\r\n-----{now}-----\r\nid:{cmd.id}\r\nfunc:{cmd.func}";
+                        txtLog.Text = txtLog.Text + $"\r\n-----{now}-----\r\nid:{cmd.id}\r\nfunc:{cmd.func}";
                     }
                 }
                 catch (Exception ex)
@@ -150,11 +150,9 @@ namespace WinFormsApp
 
         private void btnUpdateBotState_Click(object sender, EventArgs e)
         {
-            int[] state = [int.Parse(robState.Text), int.Parse(robTaskState.Text), int.Parse(safetyState.Text)];
-            double[] tcp = [double.Parse(t0.Text), double.Parse(t1.Text), double.Parse(t2.Text), double.Parse(t3.Text), double.Parse(t4.Text), double.Parse(t5.Text)];// 当前工具末端位置
-            double[] joints = [double.Parse(j0.Text), double.Parse(j1.Text), double.Parse(j2.Text), double.Parse(j3.Text), double.Parse(j4.Text), double.Parse(j5.Text)];// 当前关键角度
-
-            txtOutput.Text = Sm.UpdateBotStatus(state, joints, tcp).ToString();
+            double[] pos = [double.Parse(j0.Text), double.Parse(j1.Text), double.Parse(j2.Text), double.Parse(j3.Text), double.Parse(j4.Text), double.Parse(j5.Text)];
+            var resp= Sm.UpdatePrePosition(int.Parse(txtIdx.Text), pos);
+            txtOutput.Text = $"set params {resp}";
         }
 
         private void btnNextLine_Click(object sender, EventArgs e)
@@ -184,6 +182,12 @@ namespace WinFormsApp
                 EnumExtFunc.tool => "tool_ctrl",
                 _ => "未知",
             };
+        }
+
+        private void btnGetParams_Click(object sender, EventArgs e)
+        {
+            double[] ps = Sm.GetPrePosition(int.Parse(txtIdx.Text));
+            txtOutput.Text = $"parmas : {ps[0]},{ps[1]},{ps[2]},{ps[3]},{ps[4]},{ps[5]}";
         }
     }
 }

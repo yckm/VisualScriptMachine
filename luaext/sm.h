@@ -22,14 +22,11 @@ EXPDLL struct Resp {
 };
 
 
-EXPDLL struct Tcps
+EXPDLL struct Doubles
 {
 	double values[];
 };
-EXPDLL struct Joints
-{
-	double values[];
-};
+
 EXPDLL struct States
 {
 	int values[];
@@ -113,7 +110,7 @@ EXPDLL bool setCmdStatus(int channel, int cmdId,int status);
  * @参数 channel 通道 ID。
  * @返回值  是否设置成功
  */
-EXPDLL bool updateBotStatus(int channel, States* rts, Joints* joints, Tcps* tcp);
+EXPDLL bool updateBotStatus(int channel, States* rts, Doubles* joints, Doubles* tcp);
 /**
  * @创建人 dnp
  * @简介 PLC获取通道状态
@@ -175,3 +172,23 @@ EXPDLL bool setBreakpoints(int channel , int* linenos, int size);
  * @简介  更新使用的工件坐标系. 
  */
 EXPDLL void useWobj(int channel ,const char* wobj);
+
+
+/**
+ * @创建人 dnp
+ * @简介 获取预定义姿态信息. 
+ * @参数 channel 通道
+ * @参数 idx 位置索引
+ * @参数 d6params 待返回的预设位置信息
+ */
+EXPDLL void getPrePosition(int channel, int idx, Doubles* d6params);
+
+/**
+ * @创建人 dnp
+ * @简介 . 
+ * @参数 channel 通道
+ * @参数 idx 位置索引
+ * @参数 d6params 带设置的预设位置信息
+ * @返回值 是否更新成功
+ */
+EXPDLL bool updatePrePosition(int channel, int idx, double* d6params);

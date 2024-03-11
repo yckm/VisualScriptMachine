@@ -137,6 +137,13 @@ namespace Pcs {
 		struct D6Param {
 			int idx=-1;
 			std::vector<double> params;
+
+			D6Param(){}
+
+			D6Param(int idx, std::vector<double> params) {
+				this->idx = idx;
+				this->params = params;
+			}
 		};
 	}
 }

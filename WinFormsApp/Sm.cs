@@ -5,12 +5,7 @@ namespace WinFormsApp
 
     #region 返回结构体
 
-    struct Tcps
-    {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] values;
-    };
-    struct Joints
+    struct Doubles
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
         public double[] values;
@@ -190,7 +185,7 @@ namespace WinFormsApp
 
 
         [DllImport(DllPath, EntryPoint = "updateBotStatus", SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
-        extern static bool updateBotStatus(int channel, ref States rts, ref Joints joints, ref Tcps tcp);
+        extern static bool updateBotStatus(int channel, ref States rts, ref Doubles joints, ref Doubles tcp);
 
 
         [DllImport(DllPath, EntryPoint = "setDebugMode", SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
@@ -209,6 +204,15 @@ namespace WinFormsApp
         extern static bool setBreakpoints(int channel, int[] linenos, int size);
 
 
+        [DllImport(DllPath, EntryPoint = "useWobj", CallingConvention = CallingConvention.Cdecl)]
+        extern static void useWobj(int channel, string wobj);
+
+
+        [DllImport(DllPath, EntryPoint = "getPrePosition", SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
+        extern static void getPrePosition(int channel, int idx, ref Doubles d6params);
+
+        [DllImport(DllPath, EntryPoint = "updatePrePosition", SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
+        extern static bool updatePrePosition(int channel, int idx, double[] d6params);
 
         #endregion
 
@@ -282,8 +286,6 @@ namespace WinFormsApp
             ExternCmd ec = Marshal.PtrToStructure<ExternCmd>(ptr);
             Cmd cmd = new Cmd(ec);
             cmdId = cmd.id;
-
-            Console.WriteLine($"Cmd Id {cmdId}   func:{cmd.func}");
             return cmd;
         }
 
@@ -312,14 +314,14 @@ namespace WinFormsApp
                 s.values[i] = rts[i];
             }
 
-            Joints j;
+            Doubles j;
             j.values = new double[6];
             for (int i = 0; i < joints.Length; i++)
             {
                 j.values[i] = joints[i];
             }
 
-            Tcps t;
+            Doubles t;
             t.values = new double[6];
             for (int i = 0; i < tcp.Length; i++)
             {
@@ -369,6 +371,41 @@ namespace WinFormsApp
         {
             return setBreakpoints(channelId, linenos, linenos.Length);
         }
+
+        /// <summary>
+        /// 设置要使用的工件坐标系
+        /// </summary>
+        /// <param name="wobjName">工件坐标系名称</param>
+        public static void UseWobj(string wobjName)
+        {
+            useWobj(channelId, wobjName);
+        }
         #endregion
+
+        /// <summary>
+        /// 获取位置参数
+        /// </summary>
+        /// <param name="channel">通道</param>
+        /// <param name="idx">位置索引</param>
+        /// <param name="d6params">参数</param>
+        public static double[] GetPrePosition(int idx)
+        {
+            Doubles t;
+            t.values = new double[6];
+            getPrePosition(channelId, idx, ref t);
+            return t.values;
+
+        }
+
+        /// <summary>
+        /// 设置位置参数
+        /// </summary>
+        /// <param name="channel">通道</param>
+        /// <param name="idx">位置索引</param>
+        /// <param name="d6params">参数</param>
+        public static bool UpdatePrePosition(int idx, double[] d6params)
+        {
+            return updatePrePosition(channelId, idx, d6params);
+        }
     }
 }

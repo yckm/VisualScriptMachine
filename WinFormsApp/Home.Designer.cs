@@ -47,22 +47,8 @@
             j3 = new TextBox();
             j2 = new TextBox();
             j1 = new TextBox();
-            t1 = new TextBox();
-            t2 = new TextBox();
-            t3 = new TextBox();
-            t4 = new TextBox();
-            t5 = new TextBox();
-            t0 = new TextBox();
             label4 = new Label();
-            label5 = new Label();
-            btnUpdateBotState = new Button();
-            label6 = new Label();
-            robState = new TextBox();
-            robTaskState = new TextBox();
-            safetyState = new TextBox();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
+            btnSetParams = new Button();
             btnNextLine = new Button();
             textBox1 = new TextBox();
             txtCmd = new TextBox();
@@ -71,6 +57,8 @@
             label3 = new Label();
             label10 = new Label();
             txtLog = new TextBox();
+            txtIdx = new TextBox();
+            btnGetParams = new Button();
             SuspendLayout();
             // 
             // txtOutput
@@ -202,7 +190,7 @@
             // 
             // j0
             // 
-            j0.Location = new Point(87, 1391);
+            j0.Location = new Point(119, 1387);
             j0.Name = "j0";
             j0.Size = new Size(40, 27);
             j0.TabIndex = 61;
@@ -211,7 +199,7 @@
             // j5
             // 
             j5.BackColor = Color.BlanchedAlmond;
-            j5.Location = new Point(321, 1391);
+            j5.Location = new Point(353, 1387);
             j5.Name = "j5";
             j5.Size = new Size(40, 27);
             j5.TabIndex = 66;
@@ -219,7 +207,7 @@
             // 
             // j4
             // 
-            j4.Location = new Point(275, 1391);
+            j4.Location = new Point(307, 1387);
             j4.Name = "j4";
             j4.Size = new Size(40, 27);
             j4.TabIndex = 65;
@@ -228,7 +216,7 @@
             // j3
             // 
             j3.BackColor = Color.BlanchedAlmond;
-            j3.Location = new Point(229, 1391);
+            j3.Location = new Point(261, 1387);
             j3.Name = "j3";
             j3.Size = new Size(40, 27);
             j3.TabIndex = 64;
@@ -236,7 +224,7 @@
             // 
             // j2
             // 
-            j2.Location = new Point(183, 1391);
+            j2.Location = new Point(215, 1387);
             j2.Name = "j2";
             j2.Size = new Size(40, 27);
             j2.TabIndex = 63;
@@ -245,162 +233,32 @@
             // j1
             // 
             j1.BackColor = Color.BlanchedAlmond;
-            j1.Location = new Point(133, 1391);
+            j1.Location = new Point(165, 1387);
             j1.Name = "j1";
             j1.Size = new Size(40, 27);
             j1.TabIndex = 62;
             j1.Text = "2";
-            // 
-            // t1
-            // 
-            t1.BackColor = Color.BlanchedAlmond;
-            t1.Location = new Point(133, 1435);
-            t1.Name = "t1";
-            t1.Size = new Size(40, 27);
-            t1.TabIndex = 68;
-            t1.Text = "1.8";
-            // 
-            // t2
-            // 
-            t2.Location = new Point(183, 1435);
-            t2.Name = "t2";
-            t2.Size = new Size(40, 27);
-            t2.TabIndex = 69;
-            t2.Text = "1.9";
-            // 
-            // t3
-            // 
-            t3.BackColor = Color.BlanchedAlmond;
-            t3.Location = new Point(229, 1435);
-            t3.Name = "t3";
-            t3.Size = new Size(40, 27);
-            t3.TabIndex = 70;
-            t3.Text = "2.0";
-            // 
-            // t4
-            // 
-            t4.Location = new Point(275, 1435);
-            t4.Name = "t4";
-            t4.Size = new Size(40, 27);
-            t4.TabIndex = 71;
-            t4.Text = "2.1";
-            // 
-            // t5
-            // 
-            t5.BackColor = Color.BlanchedAlmond;
-            t5.Location = new Point(321, 1435);
-            t5.Name = "t5";
-            t5.Size = new Size(40, 27);
-            t5.TabIndex = 72;
-            t5.Text = "2.2";
-            // 
-            // t0
-            // 
-            t0.Location = new Point(87, 1435);
-            t0.Name = "t0";
-            t0.Size = new Size(40, 27);
-            t0.TabIndex = 67;
-            t0.Text = "1.7";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.AppWorkspace;
-            label4.Location = new Point(11, 1388);
+            label4.Location = new Point(13, 1384);
             label4.Name = "label4";
-            label4.Size = new Size(54, 28);
+            label4.Size = new Size(42, 28);
             label4.TabIndex = 30;
-            label4.Text = "关节";
+            label4.Text = "Idx";
             // 
-            // label5
+            // btnSetParams
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.AppWorkspace;
-            label5.Location = new Point(11, 1432);
-            label5.Name = "label5";
-            label5.Size = new Size(54, 28);
-            label5.TabIndex = 31;
-            label5.Text = "末端";
-            // 
-            // btnUpdateBotState
-            // 
-            btnUpdateBotState.Location = new Point(392, 1388);
-            btnUpdateBotState.Name = "btnUpdateBotState";
-            btnUpdateBotState.Size = new Size(92, 116);
-            btnUpdateBotState.TabIndex = 76;
-            btnUpdateBotState.Text = "更新机\r\n器状态";
-            btnUpdateBotState.UseVisualStyleBackColor = true;
-            btnUpdateBotState.Click += btnUpdateBotState_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.AppWorkspace;
-            label6.Location = new Point(11, 1476);
-            label6.Name = "label6";
-            label6.Size = new Size(54, 28);
-            label6.TabIndex = 33;
-            label6.Text = "状态";
-            // 
-            // robState
-            // 
-            robState.Location = new Point(133, 1477);
-            robState.Name = "robState";
-            robState.Size = new Size(40, 27);
-            robState.TabIndex = 73;
-            robState.Text = "0";
-            // 
-            // robTaskState
-            // 
-            robTaskState.Location = new Point(229, 1477);
-            robTaskState.Name = "robTaskState";
-            robTaskState.Size = new Size(40, 27);
-            robTaskState.TabIndex = 74;
-            robTaskState.Text = "0";
-            // 
-            // safetyState
-            // 
-            safetyState.Location = new Point(321, 1477);
-            safetyState.Name = "safetyState";
-            safetyState.Size = new Size(40, 27);
-            safetyState.TabIndex = 75;
-            safetyState.Text = "0";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.AppWorkspace;
-            label7.Location = new Point(183, 1476);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 28);
-            label7.TabIndex = 37;
-            label7.Text = "rts";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.AppWorkspace;
-            label8.Location = new Point(275, 1476);
-            label8.Name = "label8";
-            label8.Size = new Size(32, 28);
-            label8.TabIndex = 38;
-            label8.Text = "ss";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.AppWorkspace;
-            label9.Location = new Point(82, 1476);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 28);
-            label9.TabIndex = 39;
-            label9.Text = "rbs";
+            btnSetParams.Location = new Point(399, 1387);
+            btnSetParams.Name = "btnSetParams";
+            btnSetParams.Size = new Size(37, 30);
+            btnSetParams.TabIndex = 76;
+            btnSetParams.Text = "P";
+            btnSetParams.UseVisualStyleBackColor = true;
+            btnSetParams.Click += btnUpdateBotState_Click;
             // 
             // btnNextLine
             // 
@@ -487,14 +345,34 @@
             txtLog.Multiline = true;
             txtLog.Name = "txtLog";
             txtLog.ReadOnly = true;
-            txtLog.Size = new Size(127, 1472);
+            txtLog.Size = new Size(127, 1383);
             txtLog.TabIndex = 77;
+            // 
+            // txtIdx
+            // 
+            txtIdx.Location = new Point(59, 1387);
+            txtIdx.Name = "txtIdx";
+            txtIdx.Size = new Size(40, 27);
+            txtIdx.TabIndex = 78;
+            txtIdx.Text = "1";
+            // 
+            // btnGetParams
+            // 
+            btnGetParams.Location = new Point(442, 1387);
+            btnGetParams.Name = "btnGetParams";
+            btnGetParams.Size = new Size(37, 30);
+            btnGetParams.TabIndex = 79;
+            btnGetParams.Text = "G";
+            btnGetParams.UseVisualStyleBackColor = true;
+            btnGetParams.Click += btnGetParams_Click;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(630, 1516);
+            ClientSize = new Size(630, 1427);
+            Controls.Add(btnGetParams);
+            Controls.Add(txtIdx);
             Controls.Add(txtLog);
             Controls.Add(label10);
             Controls.Add(label3);
@@ -504,22 +382,8 @@
             Controls.Add(txtOutput);
             Controls.Add(textBox1);
             Controls.Add(btnNextLine);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(safetyState);
-            Controls.Add(robTaskState);
-            Controls.Add(robState);
-            Controls.Add(label6);
-            Controls.Add(btnUpdateBotState);
-            Controls.Add(label5);
+            Controls.Add(btnSetParams);
             Controls.Add(label4);
-            Controls.Add(t1);
-            Controls.Add(t2);
-            Controls.Add(t3);
-            Controls.Add(t4);
-            Controls.Add(t5);
-            Controls.Add(t0);
             Controls.Add(j1);
             Controls.Add(j2);
             Controls.Add(j3);
@@ -563,22 +427,8 @@
         private TextBox j3;
         private TextBox j2;
         private TextBox j1;
-        private TextBox t1;
-        private TextBox t2;
-        private TextBox t3;
-        private TextBox t4;
-        private TextBox t5;
-        private TextBox t0;
         private Label label4;
-        private Label label5;
-        private Button btnUpdateBotState;
-        private Label label6;
-        private TextBox robState;
-        private TextBox robTaskState;
-        private TextBox safetyState;
-        private Label label7;
-        private Label label8;
-        private Label label9;
+        private Button btnSetParams;
         private Button btnNextLine;
         private TextBox textBox1;
         private TextBox txtCmd;
@@ -587,5 +437,7 @@
         private Label label3;
         private Label label10;
         private TextBox txtLog;
+        private TextBox txtIdx;
+        private Button btnGetParams;
     }
 }

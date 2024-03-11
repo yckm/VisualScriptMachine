@@ -150,7 +150,7 @@ bool setCmdStatus(int channel, int cmdId, int status) {
 * @参数 tcp 末端位置
 * @返回值 是否设置成功
 */
-bool  updateBotStatus(int channel, States* rts, Joints* joints, Tcps* tcp){
+bool  updateBotStatus(int channel, States* rts, Doubles* joints, Doubles* tcp){
 	std::vector<double> js;
 	std::vector<double> tcps;
 	for (int i = 0; i < 6; i++) {
@@ -331,4 +331,35 @@ bool setBreakpoints(int channel, int* linenos, int size) {
  */
 void useWobj(int channel, const char* wobj) {
 	Channels::getChannel(channel)->useWobj(wobj);
+}
+
+
+
+/**
+ * @创建人 dnp
+ * @简介 获取预定义姿态信息.
+ * @参数 channel 通道
+ * @参数 idx 位置索引
+ * @参数 d6params 待返回的预设位置信息
+ */
+void getPrePosition(int channel,int idx, Doubles* d6params) {
+	std::vector<double> params = FixedParams::get(channel,idx);
+	for (int i = 0; i < 6; i++) {
+		d6params->values[i] = params[i];
+	}
+}
+
+/**
+ * @创建人 dnp
+ * @简介 .
+ * @参数 channel 通道
+ * @参数 idx 位置索引
+ * @参数 d6params 带设置的预设位置信息
+ */
+bool updatePrePosition(int channel, int idx, double* d6params){
+	std::vector<double> ps;
+	for (int i = 0; i < 6; i++) {
+		ps.push_back(d6params[i]);
+	}
+	return Channels::getChannel(channel)->updatePrePosition(idx, ps);
 }

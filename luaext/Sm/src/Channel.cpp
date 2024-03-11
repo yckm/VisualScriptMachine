@@ -8,7 +8,7 @@
 #include "../include/Channels.h"
 #include <vector>
 #include "../include/Utils.h"
-
+#include "../include/FixedParams.h"
 
 namespace Pcs {
 	namespace Sm {
@@ -431,10 +431,13 @@ namespace Pcs {
 		* @简介 更新预定义位置.
 		* @参数 p 位姿
 		*/
-		void Channel::updatePrePosition(int idx,std::vector<double> p)
+		bool Channel::updatePrePosition(int idx,std::vector<double> p)
 		{
-			D6Param pos = { idx,p };
-			prePositions.push(pos);
+			if (FixedParams::update(channelId, idx, p)) {
+				prePositions.push(D6Param(idx,p));
+				return true;
+			}			
+			return false;
 		}
 
 	

@@ -321,7 +321,7 @@ namespace Pcs {
 			 * @简介 更新预定义位置.
 			 * @参数 p 位姿
 			 */
-			void updatePrePosition(int idx, std::vector<double> p);
+			bool updatePrePosition(int idx, std::vector<double> p);
 
 
 			/**

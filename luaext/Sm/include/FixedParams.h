@@ -60,6 +60,14 @@ namespace Pcs {
 			 */
 			static std::vector<D6Param> getList(int channel);
 		
+			/**
+			 * @创建人 dnp
+			 * @简介 获取指定索引的值.
+			 * @参数 channel 通道
+			 * @参数 idx 索引
+			 * @返回值 参数值
+			 */
+			static std::vector<double> get(int channel, int idx);
 		};
 	}
 }

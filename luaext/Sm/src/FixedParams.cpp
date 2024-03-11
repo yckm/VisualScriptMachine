@@ -20,7 +20,7 @@ namespace Pcs {
 		
 
 		std::string FixedParams::sqlPath = "Sm.db";
-		std::vector< std::map<int, std::vector<double>>> FixedParams::prePosList(CHANNEL_NUM);
+		std::vector<std::map<int, std::vector<double>>> FixedParams::prePosList(CHANNEL_NUM);
 		sqlite3* FixedParams::db=nullptr;
 
 		void FixedParams::fillLossParams(std::vector<std::set<int>>& pIdx)
@@ -46,8 +46,11 @@ namespace Pcs {
 				sqlite3_exec(db, "BEGIN;", 0, 0, 0);
 				for (int i = 0; i < lossIdx.size(); i++)
 				{
-					std::string sql = "INSERT into D6Params(ch,idx,v0,v1,v2,v3,v4,v5) VALUES (" + std::to_string(std::get<0>(lossIdx[i])) + "," + std::to_string(std::get<1>(lossIdx[i])) + ",0,0,0,0,0,0);";
+					int channel = std::get<0>(lossIdx[i]);
+					int idx = std::get<1>(lossIdx[i]);
+					std::string sql = "INSERT into D6Params(ch,idx,v0,v1,v2,v3,v4,v5) VALUES (" + std::to_string(channel) + "," + std::to_string(idx) + ",0,0,0,0,0,0);";
 					sqlite3_exec(db, sql.c_str(), 0, 0, 0);
+					prePosList[channel].insert({ idx,std::vector<double>(6)});
 				}
 				sqlite3_exec(db, "COMMIT;", 0, 0, 0);
 			}
@@ -60,6 +63,7 @@ namespace Pcs {
 		 * @返回值 是否打开成功
 		 */
 		bool FixedParams::init() {
+
 			int rc = sqlite3_open(sqlPath.c_str(), &db);
 			if (rc != SQLITE_OK) {
 				Log << "打开数据库失败 " << sqlite3_errmsg(db);
@@ -83,16 +87,17 @@ namespace Pcs {
 
 			if (sqlite3_prepare_v2(db, queryDataSQL, -1, &statement, nullptr) == SQLITE_OK) {				
 				while (sqlite3_step(statement) == SQLITE_ROW) {// 遍历结果集	
-					int channel = sqlite3_column_int(statement, 1);
-					int idx = sqlite3_column_int(statement, 2);
-					prePosList[channel][idx] = {
-						sqlite3_column_double(statement, 3) ,
-						sqlite3_column_double(statement, 4) ,
-						sqlite3_column_double(statement, 5) ,
-						sqlite3_column_double(statement, 6) ,
-						sqlite3_column_double(statement, 7) ,
-						sqlite3_column_double(statement, 8)
+					int channel = sqlite3_column_int(statement, 0);
+					int idx = sqlite3_column_int(statement, 1);
+					std::vector<double> pms = {
+						sqlite3_column_double(statement, 2),
+							sqlite3_column_double(statement,3),
+							sqlite3_column_double(statement, 4),
+							sqlite3_column_double(statement, 5),
+							sqlite3_column_double(statement, 6),
+							sqlite3_column_double(statement, 7)
 					};
+					prePosList[channel].insert({ idx,pms });
 					pIdx[channel].insert(idx);
 				}
 				sqlite3_finalize(statement);// 释放资源
@@ -124,8 +129,7 @@ namespace Pcs {
 		 * @返回值 是否更新成功
 		 */
 		bool FixedParams::update(int channel, int idx, std::vector<double> d6) {
-			prePosList[channel][idx] = d6;
-			Channels::getChannel(channel)->updatePrePosition(idx,d6);
+			
 
 			const char* updateDataSQL = "UPDATE D6Params SET v0=?,v1=?,v2=?,v3=?,v4=?,v5=? where ch=? and idx=?;";
 			sqlite3_stmt* statement;
@@ -144,13 +148,14 @@ namespace Pcs {
 				// 执行语句
 				if (sqlite3_step(statement) != SQLITE_DONE) {
 					Log << "更新P变量失败";
+					return false;
 				}
 
 				// 释放资源
 				sqlite3_finalize(statement);
 			}
-
-			return false;
+			prePosList[channel][idx] = d6;
+			return true;
 		}
 
 		/**
@@ -169,6 +174,21 @@ namespace Pcs {
 				list.push_back(dp);
 			}
 			return list;
+		}
+
+		/**
+		* @创建人 dnp
+		* @简介 获取指定索引的值.
+		* @参数 channel 通道
+		* @参数 idx 索引
+		* @返回值 参数值
+		*/
+		std::vector<double> FixedParams::get(int channel, int idx)
+		{
+			if (channel > prePosList.size() - 1 or idx>99 or idx<0) {
+				return std::vector<double>(6);
+			}
+			return prePosList[channel][idx];
 		}
 	}
 }
