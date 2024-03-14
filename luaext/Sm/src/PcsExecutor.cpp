@@ -192,9 +192,9 @@ namespace Pcs {
 			for (const D6Param& p: paramList){
 				lua_newtable(lua);
 
-				for (size_t i = 1; i < 6; ++i) {
+				for (size_t i = 1; i <= 6; ++i) {
 					lua_pushinteger(lua, i); // 索引
-					lua_pushnumber(lua, p.params[i]); // 值
+					lua_pushnumber(lua, p.params[i-1]); // 值
 					lua_settable(lua, -3);
 				}
 				std::string pName = "P" + std::to_string(p.idx);
